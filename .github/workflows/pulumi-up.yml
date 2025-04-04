@@ -15,9 +15,6 @@ jobs:
         run: uv sync
       - uses: pulumi/actions@v6
         with:
-          command: install
-      - uses: pulumi/actions@v6
-        with:
           command: up
           stack-name: dev
         env:
