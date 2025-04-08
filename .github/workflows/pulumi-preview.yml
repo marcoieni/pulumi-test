@@ -3,6 +3,8 @@ on:
   - pull_request
 jobs:
   preview:
+    permissions:
+      pull-requests: write
     name: Preview
     runs-on: ubuntu-latest
     steps:
