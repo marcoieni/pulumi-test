@@ -1,0 +1,13 @@
+{
+    "name": "pulumi-test-ts",
+    "main": "index.ts",
+    "devDependencies": {
+        "@types/node": "^22",
+        "typescript": "^5.8.3"
+    },
+    "dependencies": {
+        "@pulumi/github": "^6.7.0",
+        "@pulumi/pulumi": "3.161.0",
+        "@pulumi/pulumiservice": "^0.29.1"
+    }
+}
