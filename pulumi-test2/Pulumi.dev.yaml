@@ -1,1 +1,2 @@
-config:
+environment:
+  - pulumi-test2/dev
