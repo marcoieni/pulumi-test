@@ -128,7 +128,7 @@ wheels = [
 ]
 
 [[package]]
-name = "pulumi-test"
+name = "pulumi-test1"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [

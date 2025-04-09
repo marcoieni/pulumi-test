@@ -1,4 +1,4 @@
-name: pulumi-test
+name: pulumi-test1
 description: Pulumi GitHub test
 runtime:
   name: python

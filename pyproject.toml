@@ -1,5 +1,5 @@
 [project]
-name = "pulumi-test"
+name = "pulumi-test1"
 version = "0.1.0"
 description = "Pulumi test package"
 requires-python = ">=3.13"
