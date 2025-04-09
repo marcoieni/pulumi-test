@@ -2,25 +2,42 @@ name: Pulumi preview
 on:
   - pull_request
 jobs:
+  find-projects:
+    runs-on: ubuntu-latest
+    outputs:
+      projects: ${{ steps.find-dirs.outputs.directories }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Find directories with Pulumi.yaml
+        id: find-dirs
+        run: |
+          DIRS=$(find . -name "Pulumi.yaml" -type f -exec dirname {} \; | jq -R -s -c 'split("\n") | map(select(length > 0))')
+          echo "directories=$DIRS" >> $GITHUB_OUTPUT
+
   preview:
+    needs: find-projects
     permissions:
       pull-requests: write
-    name: Preview
+    name: Preview ${{ matrix.project }}
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        project: ${{ fromJson(needs.find-projects.outputs.projects) }}
     steps:
       - uses: actions/checkout@v4
       - name: Install uv
         uses: astral-sh/setup-uv@v5
       - name: Set up Python
-        run: cd pulumi-test1 && uv python install
+        run: cd ${{ matrix.project }} && uv python install
       - name: Install dependencies
-        run: cd pulumi-test1 && uv sync
+        run: cd ${{ matrix.project }} && uv sync
       - uses: pulumi/actions@v6
         with:
           command: preview
           comment-on-pr: true
           stack-name: dev
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          work-dir: pulumi-test1
+          work-dir: ${{ matrix.project }}
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
