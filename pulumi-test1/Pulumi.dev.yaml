@@ -1,1 +1,3 @@
 config:
+  github:token:
+    secure: AAABAPV6JyxT+WChbH2a5dfeuRPh6ZlMay7YUVE10hrm69c73IEf/rVDZ/+0Ar76nxPVp+NtHjEfwXEaDSgNpZNhhZPONSS80FFvavzoFuY7aG2nFF7MWd3mi7wjPikKk/Bk6/QZ8bx09XH5rMwsbnpgu9PPOCU9R60DgVo=
