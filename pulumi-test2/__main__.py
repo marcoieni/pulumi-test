@@ -10,9 +10,12 @@ settings = service.DeploymentSettings("deployment_settings",
     organization="ieni",
     project=pulumi.get_project(),
     stack=pulumi.get_stack(),
+    github={
+        "preview_pull_requests": True,
+        "repository": "marcoieni/pulumi-test",
+    },
     source_context={
         "git": {
-            "repo_url": "https://github.com/marcoieni/pulumi-test.git",
             "branch": "refs/heads/main",
             "repo_dir": "pulumi-test2"
         }
