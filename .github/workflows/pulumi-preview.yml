@@ -12,15 +12,15 @@ jobs:
       - name: Install uv
         uses: astral-sh/setup-uv@v5
       - name: Set up Python
-        run: cd pulumi-test-1 && uv python install
+        run: cd pulumi-test1 && uv python install
       - name: Install dependencies
-        run: cd pulumi-test-1 && uv sync
+        run: cd pulumi-test1 && uv sync
       - uses: pulumi/actions@v6
         with:
           command: preview
           comment-on-pr: true
           stack-name: dev
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          work-dir: pulumi-test-1
+          work-dir: pulumi-test1
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
