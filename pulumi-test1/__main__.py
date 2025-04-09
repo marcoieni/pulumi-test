@@ -11,4 +11,6 @@ actions_variable_resource = github.ActionsVariable("actionsVariableResource",
 actions_secret_resource = github.ActionsSecret("actionsSecretResource",
     repository="pulumi-test",
     secret_name="MY_SECRET",
-    plaintext_value="super-secret-value")
+    plaintext_value="super-secret-value1")
+
+print(actions_secret_resource)
