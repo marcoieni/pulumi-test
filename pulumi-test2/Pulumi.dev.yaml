@@ -1,1 +1,5 @@
+environment:
+  - pulumi-test2/dev
 config:
+  github:token:
+    secure: AAABAAFbewaAIMaEMTBCWbcqM8X7ogt2fnKtt7M+NikqaVlHqk9gdEb9pboYDmeXCs0uW1rACaruaHv810pcoK/HfMYSpnSI/4Ue3aHHkq3tfXihQ5fsiPXNoVZX7XonphU9lXBLK6lzm1rfCUoW0EGYHTbD0cl07eY1V4A=
