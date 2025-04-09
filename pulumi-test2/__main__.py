@@ -13,6 +13,7 @@ settings = service.DeploymentSettings("deployment_settings",
     github={
         "preview_pull_requests": True,
         "repository": "marcoieni/pulumi-test",
+        "deploy_commits": True
     },
     source_context={
         "git": {
