@@ -25,5 +25,5 @@ settings = service.DeploymentSettings("deployment_settings",
 
 actions_variable_resource = github.ActionsVariable("actionsVariableResource2",
     repository="pulumi-test",
-    value="foo2222",
+    value="foo123",
     variable_name="bar2")
