@@ -1,1 +1,3 @@
 config:
+  repository: rust-lang/aws-runners-test
+  codeConnectionName: staging-gh-connection
