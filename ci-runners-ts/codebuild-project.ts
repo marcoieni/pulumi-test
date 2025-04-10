@@ -77,7 +77,5 @@ export class CodebuildProject extends pulumi.ComponentResource {
         }, {
             parent: this,
         });
-
-        this.registerOutputs();
     }
 }
