@@ -1,0 +1,11 @@
+{
+	"name": "ci-runners",
+	"devDependencies": {
+		"@types/node": "^22"
+	},
+	"dependencies": {
+		"typescript": "^5.8.3",
+		"@pulumi/pulumi": "^3.0.0",
+		"@pulumi/aws": "6.76.0"
+	}
+}
