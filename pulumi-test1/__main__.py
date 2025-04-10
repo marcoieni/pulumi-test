@@ -5,7 +5,7 @@ print("Hello, Pulumi!")
 
 actions_variable_resource = github.ActionsVariable("actionsVariableResource",
     repository="pulumi-test",
-    value="foo5",
+    value="foo4",
     variable_name="bar")
 
 actions_secret_resource = github.ActionsSecret("actionsSecretResource",
