@@ -1,6 +1,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
-import { CodebuildProject } from "./codebuild-project";
+import { CodebuildProjectArgs, createCodebuildProject } from "./codebuild-project";
 
 const config = new pulumi.Config();
 // The GitHub repository where the codebuild project will be used.
@@ -42,28 +42,32 @@ const codebuildPolicy = new aws.iam.RolePolicy("codebuild_policy", {
         }],
     }),
 });
-const ubuntu222c = new CodebuildProject("ubuntu222c", {
+
+createCodebuildProject("ubuntu222c", {
     name: "ubuntu-22-2c",
     serviceRole: codebuildRole.arn,
     computeType: "BUILD_GENERAL1_SMALL",
     repository: repository,
     codeConnectionArn: githubConnection.arn,
 });
-const ubuntu224c = new CodebuildProject("ubuntu224c", {
+
+createCodebuildProject("ubuntu224c", {
     name: "ubuntu-22-4c",
     serviceRole: codebuildRole.arn,
     computeType: "BUILD_GENERAL1_MEDIUM",
     repository: repository,
     codeConnectionArn: githubConnection.arn,
 });
-const ubuntu228c = new CodebuildProject("ubuntu228c", {
+
+createCodebuildProject("ubuntu228c", {
     name: "ubuntu-22-8c",
     serviceRole: codebuildRole.arn,
     computeType: "BUILD_GENERAL1_LARGE",
     repository: repository,
     codeConnectionArn: githubConnection.arn,
 });
-const ubuntu2236c = new CodebuildProject("ubuntu2236c", {
+
+createCodebuildProject("ubuntu2236c", {
     name: "ubuntu-22-36c",
     serviceRole: codebuildRole.arn,
     computeType: "BUILD_GENERAL1_XLARGE",
