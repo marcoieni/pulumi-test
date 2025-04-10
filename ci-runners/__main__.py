@@ -47,25 +47,25 @@ common_props = {
 }
 
 # Create projects with specific properties merged with common properties
-ubuntu222c = CodebuildProject("ubuntu222c", {
+CodebuildProject("ubuntu222c", {
     'name': "ubuntu-22-2c",
     'computeType': "BUILD_GENERAL1_SMALL",
     **common_props
 })
 
-ubuntu224c = CodebuildProject("ubuntu224c", {
+CodebuildProject("ubuntu224c", {
     'name': "ubuntu-22-4c",
     'computeType': "BUILD_GENERAL1_MEDIUM",
     **common_props
 })
 
-ubuntu228c = CodebuildProject("ubuntu228c", {
+CodebuildProject("ubuntu228c", {
     'name': "ubuntu-22-8c",
     'computeType': "BUILD_GENERAL1_LARGE",
     **common_props
 })
 
-ubuntu2236c = CodebuildProject("ubuntu2236c", {
+CodebuildProject("ubuntu2236c", {
     'name': "ubuntu-22-36c",
     'computeType': "BUILD_GENERAL1_XLARGE",
     **common_props

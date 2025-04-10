@@ -60,5 +60,3 @@ class CodebuildProject(pulumi.ComponentResource):
                 }],
             }],
             opts = pulumi.ResourceOptions(parent=self))
-
-        self.register_outputs()
