@@ -50,7 +50,7 @@ class CodebuildProject(pulumi.ComponentResource):
             },
             opts = pulumi.ResourceOptions(parent=self))
 
-        ubuntu_project_webhook = aws.codebuild.Webhook(f"{name}-ubuntu_project_webhook",
+        aws.codebuild.Webhook(f"{name}-ubuntu_project_webhook",
             project_name=ubuntu_project.name,
             build_type="BUILD",
             filter_groups=[{
