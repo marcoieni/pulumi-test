@@ -38,27 +38,35 @@ codebuild_policy = aws.iam.RolePolicy("codebuild_policy",
             "Resource": [github_connection.arn],
         }],
     }))
+
+# Define common properties for all CodeBuild projects
+common_props = {
+    'serviceRole': codebuild_role.arn,
+    'repository': repository,
+    'codeConnectionArn': github_connection.arn
+}
+
+# Create projects with specific properties merged with common properties
 ubuntu222c = CodebuildProject("ubuntu222c", {
-    'name': "ubuntu-22-2c", 
-    'serviceRole': codebuild_role.arn, 
-    'computeType': "BUILD_GENERAL1_SMALL", 
-    'repository': repository, 
-    'codeConnectionArn': github_connection.arn})
+    'name': "ubuntu-22-2c",
+    'computeType': "BUILD_GENERAL1_SMALL",
+    **common_props
+})
+
 ubuntu224c = CodebuildProject("ubuntu224c", {
-    'name': "ubuntu-22-4c", 
-    'serviceRole': codebuild_role.arn, 
-    'computeType': "BUILD_GENERAL1_MEDIUM", 
-    'repository': repository, 
-    'codeConnectionArn': github_connection.arn})
+    'name': "ubuntu-22-4c",
+    'computeType': "BUILD_GENERAL1_MEDIUM",
+    **common_props
+})
+
 ubuntu228c = CodebuildProject("ubuntu228c", {
-    'name': "ubuntu-22-8c", 
-    'serviceRole': codebuild_role.arn, 
-    'computeType': "BUILD_GENERAL1_LARGE", 
-    'repository': repository, 
-    'codeConnectionArn': github_connection.arn})
+    'name': "ubuntu-22-8c",
+    'computeType': "BUILD_GENERAL1_LARGE",
+    **common_props
+})
+
 ubuntu2236c = CodebuildProject("ubuntu2236c", {
-    'name': "ubuntu-22-36c", 
-    'serviceRole': codebuild_role.arn, 
-    'computeType': "BUILD_GENERAL1_XLARGE", 
-    'repository': repository, 
-    'codeConnectionArn': github_connection.arn})
+    'name': "ubuntu-22-36c",
+    'computeType': "BUILD_GENERAL1_XLARGE",
+    **common_props
+})
