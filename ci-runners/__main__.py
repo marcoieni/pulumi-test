@@ -1,7 +1,8 @@
 import pulumi
-from codebuild_project import CodebuildProject
 import json
 import pulumi_aws as aws
+
+from codebuild import create_codebuild_projects
 
 config = pulumi.Config()
 # The GitHub repository where the codebuild project will be used.
@@ -39,34 +40,8 @@ codebuild_policy = aws.iam.RolePolicy("codebuild_policy",
         }],
     }))
 
-# Define common properties for all CodeBuild projects
-common_props = {
+create_codebuild_projects({
     'serviceRole': codebuild_role.arn,
     'repository': repository,
     'codeConnectionArn': github_connection.arn
-}
-
-# Create projects with specific properties merged with common properties
-CodebuildProject("ubuntu222c", {
-    'name': "ubuntu-22-2c",
-    'computeType': "BUILD_GENERAL1_SMALL",
-    **common_props
-})
-
-CodebuildProject("ubuntu224c", {
-    'name': "ubuntu-22-4c",
-    'computeType': "BUILD_GENERAL1_MEDIUM",
-    **common_props
-})
-
-CodebuildProject("ubuntu228c", {
-    'name': "ubuntu-22-8c",
-    'computeType': "BUILD_GENERAL1_LARGE",
-    **common_props
-})
-
-CodebuildProject("ubuntu2236c", {
-    'name': "ubuntu-22-36c",
-    'computeType': "BUILD_GENERAL1_XLARGE",
-    **common_props
 })
